@@ -1,45 +1,18 @@
 {% extends "index.html" %}
 {% block body%}
-    <div class="card text-center bg-info my-5">
-      <div class="card-header">
-        CS410 Internet and Cloud Systems
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Wu-chang Feng</h5>
-        <p class="card-text">Spring 2018   TR 14:00~15:50</p>
-        <p class="card-text">Awesome</p>
-        <p class="card-text">Lots of works</p>
-      </div>
-      <div class="card-footer">
-        rating: 4.5/5,    difficulty: 4.5/5
-      </div>
-    </div>
-    <div class="card text-center bg-info my-5">
-      <div class="card-header">
-        CS410 Internet and Cloud Systems
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Wu-chang Feng</h5>
-        <p class="card-text">Spring 2018   TR 14:00~15:50</p>
-        <p class="card-text">Awesome</p>
-        <p class="card-text">Lots of works</p>
-      </div>
-      <div class="card-footer">
-        rating: 4.5/5,    difficulty: 4.5/5
-      </div>
-    </div>
-    <div class="card text-center bg-info my-5">
-      <div class="card-header">
-        CS410 Internet and Cloud Systems
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Wu-chang Feng</h5>
-        <p class="card-text">Spring 2018   TR 14:00~15:50</p>
-        <p class="card-text">Awesome</p>
-        <p class="card-text">Lots of works</p>
-      </div>
-      <div class="card-footer">
-        rating: 4.5/5,    difficulty: 4.5/5
-      </div>
-    </div>
+    {%for course in courses %}
+        <div class="card text-center bg-info my-5">
+          <div class="card-header">
+            {{course['course_name']}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{course['instructor']}}</h5>
+            <p class="card-text">{{course['term']}}   {{course['time']}}</p>
+            <p class="card-text">{{course['review']}}</p>
+          </div>
+          <div class="card-footer">
+            Rating: {{course['rating']}},    Difficulty: {{course['difficulty']}}
+          </div>
+        </div>
+    {%endfor%}
 {% endblock%}

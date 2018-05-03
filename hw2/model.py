@@ -14,7 +14,7 @@ class AppModel(IModel):
         'instructor' : 'Wu-chang Feng',
         'rating' : '4.5/5',
         'difficulty' : '4.5/5',
-        'review' : ['Awesome', 'Lots of works']
+        'review' : 'Lots of works'
     }
     """
     
@@ -32,7 +32,7 @@ class AppModel(IModel):
             'instructor' : values[3],
             'rating' : values[4],
             'difficulty' : values[5],
-            'review' : [values[6]]
+            'review' : values[6]
         }
         self.dataBase.append(course_dict)
         return True
