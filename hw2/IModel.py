@@ -10,16 +10,6 @@ class IModel(ABC):
     def fetchall(self):
         pass
 
-    """
-    Fetch an entry in with an specified course with the given course name.
-    @params course_name name of the course
-    @params id the unique id for the post course user wanted to fetch
-    return the specified course with the given course name.
-    """
-    @abstractmethod
-    def fetch_course(self, course_name, id):
-        pass
-
 
     """
     Insert a course.
