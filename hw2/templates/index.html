@@ -21,16 +21,15 @@
         <div class="inner">
           <h3 class="masthead-brand">Courses review</h3>
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" href="#">Course</a>
             <a class="nav-link" href="#">Contact</a>
           </nav>
         </div>
       </header>
 
       <main role="main" class="inner cover">
-        <h1 class="cover-heading">Courses review</h1>
-        <p class="lead">This is a anonymous reviews of courses platform.</p>
+        {% block body %}{% endblock %}
       </main>
 
       <footer class="mastfoot mt-auto">
