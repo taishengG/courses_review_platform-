@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block body %}
+  <h1>Add Course</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+        <label>Course name</label>
+        {{render_field(form.course_name, class_="form-control", placeholder="CS***")}}
+    </div>
+    <div class="form-group">
+        <label>Term</label>
+        {{render_field(form.term, class_="form-control", placeholder="Spring 2018")}}
+    </div>
+    <div class="form-group">
+        <label>Time</label>
+        {{render_field(form.time, class_="form-control", placeholder="TR 14:00~15:00")}}
+    </div>
+    <div class="form-group">
+        <label>Instructor</label>
+        {{render_field(form.instructor, class_="form-control", placeholder="Professor ***")}}
+    </div>
+    <div class="form-group">
+        <label>Rating</label>
+        {{render_field(form.rating, class_="form-control", placeholder="4.5/5")}}
+    </div>
+    <div class="form-group">
+        <label>Difficulty</label>
+        {{render_field(form.difficulty, class_="form-control", placeholder="4.5/5")}}
+    </div>
+    <div class="form-group">
+        <label>Review</label>
+        {{render_field(form.review, class_="form-control", row = "3")}}
+    </div>
+    <p>
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </p>
+  </form>
+{% endblock %}
