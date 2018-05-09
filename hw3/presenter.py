@@ -28,3 +28,20 @@ class Presenter:
             route = Route(False, 'course.html', args)
             return PresentView(route)
 
+    def add_course(self, can_add, form):
+        if can_add:
+            course_name = form.course_name.data
+            term = form.term.data
+            time = form.time.data
+            instructor = form.instructor.data
+            rating = form.rating.data
+            difficulty = form.difficulty.data
+            review = form.review.data
+
+            '''self.model.add_art((title, body, session['username'], link))'''
+            flash = Flash('Course created', MSG_TYPE.SUCCESS)
+            route = Route(True, 'course')
+            return PresentView(route, flash)
+        args = {'form':form}
+        route = Route(False, 'add_course.html', args)
+        return PresentView(route)

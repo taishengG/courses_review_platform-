@@ -4,8 +4,9 @@ import requests
 
 
 
-from presenter import Presenter
 from model import AppModel
+from presenter import Presenter
+from form import CourseForm
 
 
 app = Flask(__name__)
@@ -49,5 +50,12 @@ def base():
 def course():
     return render_view(presenter.course())
 
+@app.route('/add_course', methods = ['POST', 'GET'])
+def add_course():
+    form = CourseForm(request.form)
+    can_add = request.method == 'POST' and form.validate()
+    return render_view(presenter.add_course(can_add, form))
+
 if __name__ == '__main__':
+    app.secret_key = 'secret123'
     app.run(host='0.0.0.0', port=8000, debug=True)
