@@ -1,11 +1,11 @@
 from IModel import IModel
 import sqlite3
 
+
 class AppModel(IModel):
     """
     course dict looks like this:
     {
-        'id' : 1,
         'course_name' : 'CS410 Internet and Cloud Systems', 
         'term' : 'Spring 2018',
         'time' : 'TR 14:00~15:50',
@@ -16,16 +16,17 @@ class AppModel(IModel):
     }
     """
 
-    DB_FILE = 'entries.db'
 
     def __init__(self):
         # Make sure our database exists
-        connection = sqlite3.connect(DB_FILE)
+
+        self.DB_FILE = 'entries.db'
+        connection = sqlite3.connect(self.DB_FILE)
         cursor = connection.cursor()
         try:
             cursor.execute("select count(rowid) from courses")
         except sqlite3.OperationalError:
-            cursor.execute("courses table courses (id int, course_name text, term text, time text, instructor text, rating int, difficulty int, review text)")
+            cursor.execute("create table courses (course_name text, term text, time text, instructor text, rating int, difficulty int, review text)")
         cursor.close()
 
     
@@ -33,7 +34,7 @@ class AppModel(IModel):
         """
         Gets all entries from the database
         """
-        connection = sqlite3.connect(DB_FILE)
+        connection = sqlite3.connect(self.DB_FILE)
         cursor = connection.cursor()
         cursor.execute("SELECT * FROM courses")
         return cursor.fetchall()
@@ -44,11 +45,10 @@ class AppModel(IModel):
         """
         Inserts entry into database
         """
-        params = {'id':values[0], 'course_name':values[1], 'term':values[2], 'time':values[3], 'insturctor':values[4]. 'rating':values[5], 'difficulty':values[6], 'review':values[7]}
-        connection = sqlite3.connect(DB_FILE)
+        params = {'course_name':values[0], 'term':values[1], 'time':values[2], 'instructor':values[3], 'rating':values[4], 'difficulty':values[5], 'review':values[6]}
+        connection = sqlite3.connect(self.DB_FILE)
         cursor = connection.cursor()
-        cursor.execute("insert into courses (id, course_name, term, time, instructor, rating, difficulty, review) VALUES (:id, :course_name, :term, :time, :instructor, :rating, :difficulty, :review)", params)
-
+        cursor.execute("insert into courses (course_name, term, time, instructor, rating, difficulty, review) VALUES (:course_name, :term, :time, :instructor, :rating, :difficulty, :review)", params)
         connection.commit()
         cursor.close()
 

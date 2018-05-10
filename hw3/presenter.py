@@ -17,8 +17,8 @@ class Presenter:
     def base(self):
         return 'base.html'
     def course(self):
-        courses = self.model.fetchall(self.model)
-        if courses[0]:
+        courses = [dict(course_name=row[0], term=row[1], time=row[2], instructor=row[3], rating=row[4], difficulty=row[5], review=row[6] ) for row in self.model.fetchall()]
+        if courses:
             args = {'courses':courses}
             route = Route(False, 'course.html', args)
             return PresentView(route)
@@ -38,7 +38,9 @@ class Presenter:
             difficulty = form.difficulty.data
             review = form.review.data
 
-            '''self.model.add_art((title, body, session['username'], link))'''
+            
+            params = (course_name, term, time, instructor, rating, difficulty, review)
+            self.model.insert_course(params)
             flash = Flash('Course created', MSG_TYPE.SUCCESS)
             route = Route(True, 'course')
             return PresentView(route, flash)
