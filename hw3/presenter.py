@@ -17,7 +17,7 @@ class Presenter:
     def base(self):
         return 'base.html'
     def course(self):
-        courses = [dict(course_name=row[0], term=row[1], time=row[2], instructor=row[3], rating=row[4], difficulty=row[5], review=row[6] ) for row in self.model.fetchall()]
+        courses = [dict(course_name=row[0], term=row[1], time=row[2], instructor=row[3], rating=row[4], difficulty=row[5], review=row[6], edit_time=row[7]) for row in self.model.fetchall()]
         if courses:
             args = {'courses':courses}
             route = Route(False, 'course.html', args)
