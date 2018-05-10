@@ -11,7 +11,7 @@ from form import CourseForm
 
 app = Flask(__name__)
 model = AppModel
-value1 = ('CS410 Web Security', 'Winter 2018', 'TR 14:00~15:50', 'Wu-chang Feng', '4.5/5', '3.5/5', "Web Security was fun and I learned a ton! This should be a required class. Wu Chang does and excellent job teaching it as well and is very helpful in and out of class. Not a tough grader and lenient if you talk to him about missing classes. There is a ton of work though for this class, so be prepared to put in the time! I'm happy I took this class!")
+value1 = ('CS410 Web Security', 'Winter 2018', 'TR 14:00~15:50', 'Wu-chang Feng', '4.5', '3.5', "Web Security was fun and I learned a ton! This should be a required class. Wu Chang does and excellent job teaching it as well and is very helpful in and out of class. Not a tough grader and lenient if you talk to him about missing classes. There is a ton of work though for this class, so be prepared to put in the time! I'm happy I took this class!")
 
 value2 = ('CS201', 'Fall 2014', 'MW 10:00~11:50', 'Wu-chang Feng', '3/5', '3/5', "Professor Feng was a great professor. He is extremely knowledgeable, welcomes questions, and loves his material. The CTF homework makes the class enjoyable and was a good learning tool. Be prepared to spend a lot of time looking at assembly code.")
 
