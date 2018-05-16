@@ -1,0 +1,5 @@
+flask
+requests
+passlib
+typing
+wtforms
