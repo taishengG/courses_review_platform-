@@ -17,7 +17,9 @@ class Presenter:
     def base(self):
         return 'base.html'
     def course(self):
-        courses = self.model.fetchall(self.model)
+        '''courses = self.model.fetchall(self.model)'''
+        courses = self.model.fetchall()
+
         if courses[0]:
             args = {'courses':courses}
             route = Route(False, 'course.html', args)

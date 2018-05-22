@@ -1,4 +1,4 @@
-from enum import Enum, unique
+from enum import Enum
 import typing
 
 class PresentView:
@@ -61,7 +61,6 @@ class Flash:
     def get_msg_type(self):
         return self.msg_type
 
-@unique
 class MSG_TYPE(Enum):
     SUCCESS = 'success'
     FAIL = 'danger'

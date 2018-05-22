@@ -1,12 +1,9 @@
-from abc import ABC, abstractmethod
-
-class IModel(ABC):
+class IModel():
 
     """
     Fetch all of the on the entries in the the database.
     return dictionary, all entries in the system
     """
-    @abstractmethod
     def fetchall(self):
         pass
 
@@ -16,7 +13,6 @@ class IModel(ABC):
     @params values all the require fields requred to insert a course
     return True if course was created, False otherwise
     """
-    @abstractmethod
     def insert_course(self, values):
         pass
 
@@ -26,7 +22,6 @@ class IModel(ABC):
     @params id the unique id for the post course user wanted to delete
     return True if the post is deleted
     """
-    @abstractmethod
     def delete_course(self, course_name, id):
         pass
 
@@ -37,7 +32,6 @@ class IModel(ABC):
     @params id the unique id for the post course user wanted to add review to
     return True if the review was added
     """
-    @abstractmethod
     def add_review(self, values, id):
         pass
 
@@ -47,7 +41,6 @@ class IModel(ABC):
     @params id the unique id for the post course user wanted to edit
     return True if updated in the database
     """
-    @abstractmethod
     def update_name(self, values, id):
         pass
 
@@ -57,7 +50,6 @@ class IModel(ABC):
     @params id the unique id for the post course user wanted to edit
     return True if updated in the database
     """
-    @abstractmethod
     def update_term(self, values, id):
         pass
 
@@ -68,7 +60,6 @@ class IModel(ABC):
     @params id the unique id for the post course user wanted to edit
     return True if updated in the database
     """
-    @abstractmethod
     def update_time(self, values, id):
         pass
 
@@ -78,7 +69,6 @@ class IModel(ABC):
     @params id the unique id for the post course user wanted to edit
     return True if updated in the database
     """
-    @abstractmethod
     def update_instructor(self, values, id):
         pass
 
@@ -89,7 +79,6 @@ class IModel(ABC):
     @params id the unique id for the post course user wanted to edit
     return True if updated in the database
     """
-    @abstractmethod
     def update_rating(self, values, id):
         pass
 
@@ -100,7 +89,6 @@ class IModel(ABC):
     @params id the unique id for the post course user wanted to edit
     return True if updated in the database
     """
-    @abstractmethod
     def update_difficulty(self, values, id):
         pass
 
