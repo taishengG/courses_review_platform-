@@ -16,11 +16,17 @@ value2 = ('CS201', 'Fall 2014', 'MW 10:00~11:50', 'Wu-chang Feng', '3/5', '3/5',
 
 value3 = ('CS202', 'Fall 2018', '13:00~15:50', 'Karla Fant', '5/5', '4/5', "Took 163 and 202. Excellent teacher. Very engaging, in depth lectures. Love the fact that she put in labs, helps me practice what I learned in class. Responsive to emails! But if you fail ONE assignment, exam, or demo tho you insta fail. However I've graders are pretty lenient for programs-as long it works it basically passes. But exams are hard!")
 
+sentiment_text('I am good')
+temp = '5'
+print(value1[6])
+value1 = value1 + (temp,)
+print(value1[7])
+
+'''
 model.insert_course(value1)
 model.insert_course(value2)
 model.insert_course(value3)
 
-'''
 model.insert_course(model, value1)
 model.insert_course(model, value2)
 model.insert_course(model, value3)

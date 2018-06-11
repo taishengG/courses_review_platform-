@@ -4,3 +4,4 @@ requests
 passlib
 enum
 typing
+--upgrade google-cloud-language --user
