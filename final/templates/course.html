@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% block body%}
+    {%for course in courses %}
+        <div class="card text-center bg-info my-5">
+          <div class="card-header">
+            {{course['course_name']}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{course['instructor']}}</h5>
+            <p class="card-text">{{course['term']}}   {{course['time']}}</p>
+            <p class="card-text">{{course['review']}}</p>
+          </div>
+          <div class="card-footer">
+            Rating: {{course['rating']}},    Difficulty: {{course['difficulty']}}
+          </div>
+        </div>
+    {%endfor%}
+{% endblock%}
