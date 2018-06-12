@@ -4,4 +4,9 @@ requests
 passlib
 enum
 typing
---upgrade google-cloud-language --user
+google-cloud-language
+grpcio
+cachetools
+pyasn1
+pyasn1_modules
+rsa
