@@ -7,6 +7,45 @@ import requests
 from presenter import Presenter
 from model import AppModel
 
+import argparse
+import sys
+
+from google.cloud import language
+from google.cloud.language import enums
+from google.cloud.language import types
+import six
+
+def sentiment_text(text):
+    """Detects sentiment in the text."""
+    client = language.LanguageServiceClient()
+
+    if isinstance(text, six.binary_type):
+        text = text.decode('utf-8')
+
+    # Instantiates a plain text document.
+    # [START migration_document_text]
+    # [START migration_analyze_sentiment]
+    document = types.Document(
+        content=text,
+        type=enums.Document.Type.PLAIN_TEXT)
+    # [END migration_document_text]
+
+    # Detects sentiment in the document. You can also analyze HTML with:
+    #   document.type == enums.Document.Type.HTML
+    sentiment = client.analyze_sentiment(document).document_sentiment
+
+    #print('Score: {}'.format(sentiment.score))
+    #print('Magnitude: {}'.format(sentiment.magnitude))
+    if sentiment.score > 0.5:
+        return 'Good'
+    elif sentiment.score == 0.5:
+        return 'Normal'
+    elif sentiment.score < 0.5 and sentiment.score > 0:
+        return 'Not Very Well'
+    else:
+        return 'Bad'
+    # [END migration_analyze_sentiment]
+
 
 app = Flask(__name__)
 model = AppModel()
@@ -16,17 +55,23 @@ value2 = ('CS201', 'Fall 2014', 'MW 10:00~11:50', 'Wu-chang Feng', '3/5', '3/5',
 
 value3 = ('CS202', 'Fall 2018', '13:00~15:50', 'Karla Fant', '5/5', '4/5', "Took 163 and 202. Excellent teacher. Very engaging, in depth lectures. Love the fact that she put in labs, helps me practice what I learned in class. Responsive to emails! But if you fail ONE assignment, exam, or demo tho you insta fail. However I've graders are pretty lenient for programs-as long it works it basically passes. But exams are hard!")
 
-sentiment_text('I am good')
-temp = '5'
-print(value1[6])
-value1 = value1 + (temp,)
-print(value1[7])
+value4 = ('CS999', 'Fall 2028', '7:00~8:50', 'Unknow', '1/5', '1/5', "This class is very horrible. Tons of hw and exams, won't ever take it again!!!")
 
-'''
+
+#sentiment_text(value2[6])
+#sentiment_text(value3[6])
+#sentiment_text(value4[6])
+value1 = value1 + (sentiment_text(value1[6]),)
+value2 = value2 + (sentiment_text(value2[6]),)
+value3 = value3 + (sentiment_text(value3[6]),)
+value4 = value4 + (sentiment_text(value4[6]),)
+
 model.insert_course(value1)
 model.insert_course(value2)
 model.insert_course(value3)
+model.insert_course(value4)
 
+'''
 model.insert_course(model, value1)
 model.insert_course(model, value2)
 model.insert_course(model, value3)

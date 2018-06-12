@@ -8,12 +8,16 @@
           <div class="card-body">
             <h5 class="card-title">{{course['instructor']}}</h5>
             <p class="card-text">{{course['term']}}   {{course['time']}}</p>
+            <p class="card-text">
+            Sentiment Analysis: {{course['sentiment']}}
+		    <div class="font-italic text-sm-right">
+		     Provided by Google Machine Learning
+		    </div>
+	    </p>
             <p class="card-text">{{course['review']}}</p>
           </div>
           <div class="card-footer">
             Rating: {{course['rating']}},    Difficulty: {{course['difficulty']}}
-            <br>
-            Sentiment Analysis: {{course['sentiment']}}
           </div>
         </div>
     {%endfor%}

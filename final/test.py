@@ -11,5 +11,6 @@ model.update_difficulty('200', 1)
 print(model.fetchall())
 '''
 ml = Ml()
-ml.sentiment_text()
+temp = 'i am good'
+ml.sentiment_text(temp)
 ml.sentiment_text('I am good')
