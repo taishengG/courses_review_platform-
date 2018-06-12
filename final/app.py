@@ -47,6 +47,31 @@ def sentiment_text(text):
     # [END migration_analyze_sentiment]
 
 
+
+def translate_text(target, text):
+    # [START translate_translate_text]
+    """Translates text into the target language.
+
+    Target must be an ISO 639-1 language code.
+    See https://g.co/cloud/translate/v2/translate-reference#supported_languages
+    """
+    translate_client = translate.Client()
+
+    if isinstance(text, six.binary_type):
+        text = text.decode('utf-8')
+
+    # Text can also be a sequence of strings, in which case this method
+    # will return a sequence of results for each text.
+    result = translate_client.translate(
+        text, target_language=target)
+
+    print(u'Text: {}'.format(result['input']))
+    print(u'Translation: {}'.format(result['translatedText']))
+    print(u'Detected source language: {}'.format(
+        result['detectedSourceLanguage']))
+    # [END translate_translate_text]
+
+
 app = Flask(__name__)
 model = AppModel()
 value1 = ('CS410 Web Security', 'Winter 2018', 'TR 14:00~15:50', 'Wu-chang Feng', '4.5/5', '3.5/5', "Web Security was fun and I learned a ton! This should be a required class. Wu Chang does and excellent job teaching it as well and is very helpful in and out of class. Not a tough grader and lenient if you talk to him about missing classes. There is a ton of work though for this class, so be prepared to put in the time! I'm happy I took this class!")
@@ -61,6 +86,8 @@ value4 = ('CS999', 'Fall 2028', '7:00~8:50', 'Unknow', '1/5', '1/5', "This class
 #sentiment_text(value2[6])
 #sentiment_text(value3[6])
 #sentiment_text(value4[6])
+print(value1[0])
+'''
 value1 = value1 + (sentiment_text(value1[6]),)
 value2 = value2 + (sentiment_text(value2[6]),)
 value3 = value3 + (sentiment_text(value3[6]),)
@@ -70,6 +97,7 @@ model.insert_course(value1)
 model.insert_course(value2)
 model.insert_course(value3)
 model.insert_course(value4)
+'''
 
 '''
 model.insert_course(model, value1)
