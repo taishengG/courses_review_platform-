@@ -3,9 +3,11 @@ Werkzeug<0.13.0,>=0.12.0
 requests
 passlib
 typing
-google-cloud-language
 grpcio
 cachetools
 pyasn1
 pyasn1_modules
 rsa
+gunicorn
+google-cloud-language
+
