@@ -10,4 +10,4 @@ pyasn1_modules
 rsa
 gunicorn
 google-cloud-language
-
+google-cloud-translate

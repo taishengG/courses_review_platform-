@@ -11,6 +11,7 @@ import argparse
 import sys
 
 from google.cloud import language
+from google.cloud import translate
 from google.cloud.language import enums
 from google.cloud.language import types
 import six
@@ -65,11 +66,13 @@ def translate_text(target, text):
     result = translate_client.translate(
         text, target_language=target)
 
-    print(u'Text: {}'.format(result['input']))
-    print(u'Translation: {}'.format(result['translatedText']))
-    print(u'Detected source language: {}'.format(
-        result['detectedSourceLanguage']))
+    return result['translatedText']
+    #print(u'Text: {}'.format(result['input']))
+    #print(u'Translation: {}'.format(result['translatedText']))
+    #print(u'Detected source language: {}'.format(
+        #result['detectedSourceLanguage']))
     # [END translate_translate_text]
+    
 
 
 app = Flask(__name__)
@@ -86,7 +89,19 @@ value4 = ('CS999', 'Fall 2028', '7:00~8:50', 'Unknow', '1/5', '1/5', "This class
 #sentiment_text(value2[6])
 #sentiment_text(value3[6])
 #sentiment_text(value4[6])
-print(value1[0])
+
+trans_value1 = ()
+
+for x in value1:
+	temp = translate_text('zh', x)
+	trans_value1.append(temp)
+
+
+
+
+
+
+print(trans_value1)
 '''
 value1 = value1 + (sentiment_text(value1[6]),)
 value2 = value2 + (sentiment_text(value2[6]),)
@@ -135,4 +150,4 @@ def course():
     return render_view(presenter.course())
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)
