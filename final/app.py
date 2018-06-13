@@ -5,7 +5,6 @@ import requests
 
 
 from presenter import Presenter
-#from presenter_2 import Presenter_2
 from model import AppModel
 
 import argparse
