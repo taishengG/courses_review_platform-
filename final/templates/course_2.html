@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% block body%}
+    {%for course in courses %}
+        <div class="card text-center bg-info my-5">
+          <div class="card-header">
+            {{course['course_name']}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{course['instructor']}}</h5>
+            <p class="card-text">{{course['term']}}   {{course['time']}}</p>
+            <p class="card-text">
+            评论人态度分析: {{course['sentiment']}}
+		    <div class="font-italic text-sm-right">
+		     本内容由 Google Machine Learning 提供
+		    </div>
+	    </p>
+            <p class="card-text">{{course['review']}}</p>
+          </div>
+          <div class="card-footer">
+            评分: {{course['rating']}},    难度: {{course['difficulty']}}
+          </div>
+        </div>
+    {%endfor%}
+{% endblock%}
