@@ -161,6 +161,10 @@ def base():
 def course():
     return render_view(presenter.course())
 
+@app.route('/contact')
+def contact():
+    return render_template(presenter.contact())
+
 #----- Translated content is passed to course_2.html. by Taisheng Guo----
 @app.route('/course_2')
 def course_2():
@@ -168,6 +172,6 @@ def course_2():
 #-------- end----------------------------------
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
 
 

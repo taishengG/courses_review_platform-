@@ -1,74 +1,33 @@
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>Courses review</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../static/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../static/index.css" rel="stylesheet">
-  </head>
-
-  <body class="text-center">
-
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Courses review</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link" href="/index">Home</a>
-            <a class="nav-link" href="/course">Course</a>
-            <a class="nav-link" href="contact">Contact</a>
-      <a class="nav-link" href="course_2">Chinese</a>
-          </nav>
-        </div>
-      </header>
-
-      <main role="main" class="inner cover">
-                  <div class="container">
+{% extends "index.html" %}
+{% block body%}
+    <link href="../static/contact.css" rel="stylesheet">
+      <div class="container mt-5">
         <div class="row">
-          <div class="column">
+          <div class="column col-6">
             <div class="card">
               <!--img src="images/selfie.jpg" alt="Jane" style="width:100%"-->
               <div class="container">
-                <h2>Baiwei Yu</h2>
-                <p class="title">Computer Science Major</p>
-                <p><I>"Let's build a better world with what we learn."</I></p>
-                <p>baiwei@pdx.edu</p>
+                <h2 class="text-dark">Baiwei Yu</h2>
+                <p class="title text-dark">Computer Science Major</p>
+                <p class="text-dark"><I>"Let's build a better world with what we learn."</I></p>
+                <p class="text-dark">baiwei@pdx.edu</p>
                 <p><button class="button">Contact</button></p>
               </div>
             </div>
           </div>
 
-          <div class="column">
+          <div class="column col-6">
               <div class="card">
                 <!--img src="images/monster.jpg" alt="Jane" style="width:100%"-->
                 <div class="container">
-                  <h2>Taisheng Guo</h2>
-                  <p class="title">Computer Science Major</p>
-                  <p>"Straight As in Computer Science classes"</p>
-                  <p>taisheng@pdx.edu</p>
+                  <h2 class="text-dark">Taisheng Guo</h2>
+                  <p class="title text-dark">Computer Science Major</p>
+		  <p class="text-dark"><I>"Straight As in Computer Science classes"</I></p>
+                  <p class="text-dark">taisheng@pdx.edu</p>
                   <p><button class="button">Contact</button></p>
                 </div>
               </div>
             </div>
         </div>
       </div>
-      </main>
-
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>by Taisheng Guo, Baiwei Yu</p>
-        </div>
-      </footer>
-    </div>
-
-
-  </body>
-</html>
-
+{% endblock%}
