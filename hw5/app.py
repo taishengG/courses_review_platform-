@@ -55,5 +55,9 @@ def base():
 def course():
     return render_view(presenter.course())
 
+@app.route('/contact')
+def contact():
+    return render_template(presenter.contact())
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)

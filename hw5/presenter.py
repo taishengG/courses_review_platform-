@@ -16,6 +16,8 @@ class Presenter:
         return 'index.html'
     def base(self):
         return 'base.html'
+    def contact(self):
+        return 'contact.html'
     def course(self):
         '''courses = self.model.fetchall(self.model)'''
         courses = self.model.fetchall()
